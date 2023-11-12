@@ -56,7 +56,7 @@ public class ProductController {
     }
 
     @PostMapping("/products/add")
-    public String addCandidate(
+    public String addProduct(
             @ModelAttribute("product") Product product,
             BindingResult result, Model model) {
         productRepository.save(product);
