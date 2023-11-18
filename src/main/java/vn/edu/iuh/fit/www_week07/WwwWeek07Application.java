@@ -5,18 +5,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import vn.edu.iuh.fit.www_week07.backend.enums.EmployeeStatus;
 import vn.edu.iuh.fit.www_week07.backend.enums.ProductStatus;
-import vn.edu.iuh.fit.www_week07.backend.models.Customer;
-import vn.edu.iuh.fit.www_week07.backend.models.Employee;
 import vn.edu.iuh.fit.www_week07.backend.models.Product;
-import vn.edu.iuh.fit.www_week07.backend.repositories.CustomerRepository;
-import vn.edu.iuh.fit.www_week07.backend.repositories.EmployeeRepository;
 import vn.edu.iuh.fit.www_week07.backend.repositories.ProductRepository;
 import net.datafaker.Faker;
 import net.datafaker.providers.base.Device;
-
-import java.time.LocalDate;
 import java.util.Random;
 
 @SpringBootApplication
@@ -27,14 +20,16 @@ public class WwwWeek07Application {
     }
     @Autowired
     private ProductRepository productRepository;
-    //@Bean
-    CommandLineRunner createSampleProduct() {
+    @Bean
+    CommandLineRunner createSampleProduct()
+    {
         return args -> {
-            Faker faker = new Faker();
-            Random rnd = new Random();
-            Device devices = faker.device();
-            for (int i = 0; i < 200; i++) {
-                Product product = new Product(
+            Faker faker=new Faker();
+            Random rnd=new Random();
+            Device devices=faker.device();
+            for(int i=0;i<200;i++)
+            {
+                Product product=new Product(
                         devices.modelName(),
                         faker.lorem().paragraph(30),
                         "piece",
@@ -45,6 +40,5 @@ public class WwwWeek07Application {
             }
         };
     }
-
 
 }
