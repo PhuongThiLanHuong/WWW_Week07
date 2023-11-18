@@ -48,7 +48,7 @@ public class ProductController {
         return "admin/product/listing";
     }
 
-    @GetMapping("/products/show-add-form")
+    @GetMapping("/product/show-add-form")
     public String add(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
@@ -56,7 +56,7 @@ public class ProductController {
     }
 
     @PostMapping("/products/add")
-    public String addCandidate(
+    public String addProduct(
             @ModelAttribute("product") Product product,
             BindingResult result, Model model) {
         productRepository.save(product);
