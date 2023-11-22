@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import vn.edu.iuh.fit.www_week07.backend.enums.EmployeeStatus;
+import vn.edu.iuh.fit.www_week07.backend.models.Customer;
 import vn.edu.iuh.fit.www_week07.backend.models.Employee;
 import vn.edu.iuh.fit.www_week07.backend.repositories.EmployeeRepository;
 
@@ -37,12 +38,12 @@ public class EmployeeController {
     }
 
     @PostMapping("/employees/add")
-    public String addEmployee(@RequestParam String fullName,
-                              @RequestParam String address,
-                              @RequestParam String email,
-                              @RequestParam String dob,
-                              @RequestParam String phone) {
-        Employee employee = new Employee();
+    public String addEmployee(@ModelAttribute("employeeToAdd") Employee employee,
+            @RequestParam String fullName,
+            @RequestParam String address,
+            @RequestParam String email,
+            @RequestParam String dob,
+            @RequestParam String phone) {
         employee.setFullname(fullName);
         employee.setAddress(address);
         employee.setEmail(email);

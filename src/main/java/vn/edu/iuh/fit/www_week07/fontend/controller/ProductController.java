@@ -65,7 +65,7 @@ public class ProductController {
 
     //    @DeleteMapping("/products/delete/{id}")
     @GetMapping("/products/delete/{id}")
-    public String addCandidate(@PathVariable("id") long id) {
+    public String deleteProduct(@PathVariable("id") long id) {
         Product product = productRepository.findById(id).orElse(new Product());
         productRepository.delete(product);
         return "redirect:/admin/products";

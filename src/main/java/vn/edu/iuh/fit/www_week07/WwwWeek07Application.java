@@ -20,7 +20,7 @@ public class WwwWeek07Application {
     }
     @Autowired
     private ProductRepository productRepository;
-    @Bean
+    //@Bean
     CommandLineRunner createSampleProduct()
     {
         return args -> {
