@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import vn.edu.iuh.fit.www_week07.backend.enums.EmployeeStatus;
-import vn.edu.iuh.fit.www_week07.backend.models.Customer;
 import vn.edu.iuh.fit.www_week07.backend.models.Employee;
 import vn.edu.iuh.fit.www_week07.backend.repositories.EmployeeRepository;
 
@@ -76,7 +75,6 @@ public class EmployeeController {
         Optional<Employee> optionalEmployee = employeeRepository.findById(id);
         if (optionalEmployee.isPresent()) {
             Employee existingEmployee = optionalEmployee.get();
-            // Cập nhật thông tin của nhân viên
             existingEmployee.setFullname(fullName);
             existingEmployee.setEmail(email);
             existingEmployee.setAddress(address);
