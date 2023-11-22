@@ -7,10 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import vn.edu.iuh.fit.www_week07.backend.models.Employee;
 import vn.edu.iuh.fit.www_week07.backend.models.Product;
 import vn.edu.iuh.fit.www_week07.backend.repositories.ProductRepository;
 import vn.edu.iuh.fit.www_week07.backend.services.ProductServices;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -70,5 +72,34 @@ public class ProductController {
         productRepository.delete(product);
         return "redirect:/admin/products";
     }
+    @GetMapping("/products/show-edit-form/{id}")
+    public String showEditForm(@PathVariable Long id, Model model) {
+        Optional<Product> optionalProduct= productRepository.findById(id);
+        if (optionalProduct.isPresent()) {
+            model.addAttribute("productToUpdate", optionalProduct.get());
+            return "/admin/product/edit-form";
+        }
+        return "/admin/product/listing";
+    }
 
+    @PostMapping("/products/edit/{id}")
+    public String updateProduct(@PathVariable Long id,
+                                @RequestParam String name,
+                                @RequestParam String description,
+                                @RequestParam String unit,
+                                @RequestParam String manufacturer
+                                ) throws Exception {
+        Optional<Product> optionalProduct = productRepository.findById(id);
+        if (optionalProduct.isPresent()) {
+            Product existingProduct = optionalProduct.get();
+           existingProduct.setName(name);
+           existingProduct.setDescription(description);
+           existingProduct.setUnit(unit);
+           existingProduct.setManufacturer(manufacturer);
+            productRepository.save(existingProduct);
+        } else {
+            throw new Exception("Khong tim thay Product!");
+        }
+        return "redirect:/admin/products";
+    }
 }

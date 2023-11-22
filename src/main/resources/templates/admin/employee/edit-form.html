@@ -2,28 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit form</title>
+    <title>EDIT EMPLOYEE</title>
 </head>
 <body align="center">
-<h1>Edit Form</h1>
+<h1>Edit Employee</h1>
 <form  th:action="@{/admin/employees/edit/{id}(id=${employeeToUpdate.getId()})}" method="post">
-    <h5>Fullname</h5>
+    <h5>Full Name :</h5>
     <label>
         <input name="fullName" th:value="${employeeToUpdate.getFullname()}">
     </label> <br/>
-    <h5>Address</h5>
+    <h5>Address:</h5>
     <label>
         <input name="address" th:value="${employeeToUpdate.getAddress()}">
     </label> <br/>
-    <h5>Email</h5>
+    <h5>Email:</h5>
     <label>
         <input name="email" th:value="${employeeToUpdate.getEmail()}">
     </label> <br/>
-    <h5>DoB</h5>
+    <h5>Date of Birth:</h5>
     <label>
         <input name="dob" th:value="${employeeToUpdate.getDob()}">
     </label> <br/>
-    <h5>phone</h5>
+    <h5>Phone Number :</h5>
     <label>
         <input name="phone" th:value="${employeeToUpdate.getPhone()}">
     </label> <br/>
