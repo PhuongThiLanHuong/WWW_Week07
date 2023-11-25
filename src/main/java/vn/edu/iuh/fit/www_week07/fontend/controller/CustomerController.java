@@ -34,7 +34,7 @@ public class CustomerController {
         return "/admin/customer/add-form";
     }
     @PostMapping("/customers/add")
-    public String addCustomeer(@ModelAttribute("customerToAdd") Customer customer
+    public String addCustomer(@ModelAttribute("customerToAdd") Customer customer
     , @RequestParam String name
     , @RequestParam String address
     , @RequestParam String email
