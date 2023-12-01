@@ -25,7 +25,8 @@ Here is my database diagram
 ![image](https://github.com/PhuongThiLanHuong/WWW_Week07_0511/assets/125435868/a9567150-d8e8-4d15-9ca3-a8a67498adc0)
 *Client:
 -Home:
-![image](https://github.com/PhuongThiLanHuong/WWW_Week07_0511/assets/125435868/6e9bd4d9-3708-44ed-b673-69cb155bf6ac)
+![image](https://github.com/PhuongThiLanHuong/WWW_Week07_0511/assets/125435868/ba4e96f2-8e46-4ef4-bfa4-79f00c25c197)
+
 
 
 
