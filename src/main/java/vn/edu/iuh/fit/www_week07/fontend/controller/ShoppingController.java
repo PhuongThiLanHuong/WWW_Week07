@@ -28,27 +28,7 @@ public class ShoppingController {
     @Autowired
     private ProductServices productServices;
     @GetMapping("/shopping/home")
-    public String homePage(Model model,
-                           @RequestParam("page") Optional<Integer> page,
-                           @RequestParam("size") Optional<Integer> size) {
-
-        int currentPage = page.orElse(1);
-        int pageSize = size.orElse(8);
-        List<Object[]> productDetails = productRepository.findAllProductsWithDetails(ProductStatus.ACTIVE);
-        Page<Product> productPage = productServices.findPaginated(currentPage - 1,
-                pageSize, "name", "asc");
-
-        model.addAttribute("productPage", productPage);
-        int totalPages = productPage.getTotalPages();
-        if (totalPages > 0) {
-            List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
-                    .boxed()
-                    .collect(Collectors.toList());
-            model.addAttribute("pageNumbers", pageNumbers);
-        }
-
-
-        model.addAttribute("productDetails", productDetails);
+    public String homePage(){
         return "/client/shopping/home";
     }
 
@@ -56,6 +36,5 @@ public class ShoppingController {
     public String checkOut() {
         return "/client/shopping/cart";
     }
-
 
 }
