@@ -34,6 +34,8 @@ public class CartDetail {
         this.price = price;
     }
 
+
+
     public Product getProduct() {
         return product;
     }
